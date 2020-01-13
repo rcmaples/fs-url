@@ -9,13 +9,12 @@ function getStarted() {
 function formSubmission() {
   $('form').submit(function(event) {
     event.preventDefault();
-    let textArr = $('textarea')
+    let textArr = $('#searchCriteria')
       .val()
       .trim()
       .split(/\n/);
 
     console.log(textArr);
-    // $('textarea').val('');
     urlGenerator(textArr);
   });
 }
@@ -39,8 +38,8 @@ function displayURL(url) {
 
 $(getStarted);
 
-/* Templates:
-
+/* Decoded Templates:
+Email:
 https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserEmail:==:["rc@fullstory.com","rc@rcmaples.io"])):():():():)/0
 
 
