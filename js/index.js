@@ -20,13 +20,17 @@ function formSubmission() {
 }
 
 function urlGenerator(searchArray) {
+  let url=''
   let searchString = searchArray.map(item => `"${item}"`).join();
   console.log(searchString);
   let encoded = encodeURIComponent(searchString);
   console.log(encoded);
-  let url = `
-  https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:(:((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
-
+  if (window.location == `https://fs-url.glitch.me/staging`){
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:(:((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+  } else {
+   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:(:((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+  }
+ console.log(url);
   displayURL(url);
 }
 
