@@ -28,3 +28,7 @@ header > h4 {
   top: 12px;
   left: 13px;
 }
+
+.staging {
+  background: rgb(57, 106, 230);
+}

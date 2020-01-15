@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FullStory URL Generator </title>
+    <meta name="description" content="Generate Complicated FullStory Segment URLs" />
+    <meta name="author" content="rcmaples" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+    <header class="staging">
+      <h4>FullStory URL Generator - STAGING</h4>
+    </header>
+
+    <div class="container">
+      <form style="margin-top: 10%">
+        <div class="row">
+          <div class="six columns">
+            <label for="searchField">Value To Search On</label>
+            <select class="u-full-width" id="searchField">
+              <option value="email">email</option>
+              <!-- <option value="name">name</option>
+              <option value="url">visited url</option>
+              <option value="url_host">visited url (host)</option>
+              <option value="url_path">visited url (path)</option>
+              <option value="url_query">visited url (query)</option> -->
+            </select>
+            <label for="searchCriteria">Enter your list, one item per line:</label>
+        <textarea class="u-full-width" placeholder="jane@widgetco.com&#10john@widgetco.com" id="searchCriteria" required></textarea>
+        <input class="button-primary" type="submit" value="Submit">
+          </div>
+          <div class="six columns">
+            <p>
+              This is currently in beta and is not fully supported. Current features provide for searching for a list of email addresses.
+            </p>
+            <p>
+              To use:
+            </p>
+            <ol>
+              <li>Make sure you are logged into FullStory.</li>
+              <li>Enter your list, one item per line.</li>
+              <li>Press submit.</li>
+              <li>A link will be generated, click on the link.</li>
+            </ol>
+            Your search will open in a new tab.
+          </div>
+        </div>
+
+      </form>
+      <div class="row">
+        <div class="twelve columns">
+          <div class="js-url"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- Import JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="./js/index.js"></script>
+  </body>
+</html>
