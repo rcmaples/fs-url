@@ -16,7 +16,12 @@ function formSubmission() {
 
     console.log(textArr);
     urlGenerator(textArr);
+    resetSelect()
   });
+}
+
+function resetSelect(){
+  $('#searchField').prop('selectedIndex', 0)
 }
 
 function urlGenerator(searchArray) {
