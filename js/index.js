@@ -13,9 +13,21 @@ function formSubmission() {
       .val()
       .trim()
       .split(/\n/);
-
     console.log(textArr);
-    urlGenerator(textArr);
+    
+    let searchType = '';
+    searchType = $('#searchField').val();
+    
+    switch(searchType){
+      case 'email':
+        generateEmailURL(textArr);
+      case 'name':
+        generateNameURL(textArr);
+      case 'uid':
+        generateUidURL(textArr);
+    }
+    
+    // urlGenerator(textArr);
     resetSelect()
   });
 }
@@ -24,7 +36,7 @@ function resetSelect(){
   $('#searchField').prop('selectedIndex', 0)
 }
 
-function urlGenerator(searchArray) {
+function generateEmailURL(searchArray) {
   let url=''
   let searchString = searchArray.map(item => `"${item}"`).join();
   console.log(searchString);
@@ -51,5 +63,9 @@ $(getStarted);
 Email:
 https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserEmail:==:["rc@fullstory.com","rc@rcmaples.io"])):():():():)/0
 
+User ID:
+https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserAppKey:==:["rc@fullstory.com","rc@rcmaples.io"])):():():():)/0
 
+User Name:
+https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserDisplayName:is:["RC Maples","Ben McCormack"])):():():():)/0
 */
