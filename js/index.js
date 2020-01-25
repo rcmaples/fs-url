@@ -80,9 +80,9 @@ function generateEmailURL(searchArray) {
   let encoded = encodeURIComponent(searchString);
   console.log(encoded);
   if (window.location == `https://fs-url.glitch.me/staging`){
-   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:(:((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
   } else {
-   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:(:((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
   }
  console.log(url);
   displayURL(url);
@@ -98,8 +98,10 @@ function displayURL(url) {
 $(getStarted);
 
 /* Decoded Templates:
-Email:
+All Time Email:
 https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserEmail:==:["rc@fullstory.com","rc@rcmaples.io"])):():():():)/0
+Past Month Email:
+https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B%22rc%40fullstory.com%22%2C%22rc%40rcmaples.io%22%5D)):():():():)/0
 
 User ID:
 https://app.staging.fullstory.com/ui/thefullstory.com/segments/everyone/people:search:(:((UserAppKey:==:["rc@fullstory.com","rc@rcmaples.io"])):():():():)/0
