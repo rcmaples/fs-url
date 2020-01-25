@@ -49,9 +49,9 @@ function generateNameURL(searchArray) {
   let encoded = encodeURIComponent(searchString);
   console.log(encoded);
   if (window.location == `https://fs-url.glitch.me/staging`){
-   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:(:((UserDisplayName:is:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserDisplayName:is:%5B${encoded}%5D)):():():():)/0`;
   } else {
-   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:(:((UserDisplayName:is:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserDisplayName:is:%5B${encoded}%5D)):():():():)/0`;
   }
  console.log(url);
   displayURL(url);
@@ -64,9 +64,9 @@ function generateUidURL(searchArray) {
   let encoded = encodeURIComponent(searchString);
   console.log(encoded);
   if (window.location == `https://fs-url.glitch.me/staging`){
-   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:(:((UserAppKey:==:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserAppKey:==:%5B${encoded}%5D)):():():():)/0`;
   } else {
-   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:(:((UserAppKey:==:%5B${encoded}%5D)):():():():)/0`;
+   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserAppKey:==:%5B${encoded}%5D)):():():():)/0`;
   }
  console.log(url);
   displayURL(url);
