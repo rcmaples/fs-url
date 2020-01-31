@@ -45,8 +45,6 @@ function formSubmission() {
         break;
         
     }
-    
-    // urlGenerator(textArr);
     resetSelect()
   });
 }
@@ -56,18 +54,11 @@ function resetSelect(){
 }
 
 
-function encodeText(textArr){
-  let searchString = searchArray.map(item => `"${item}"`).join();
-  let encoded = encodeURIComponent(searchString);
-  
-  
-  return encodeURIComponent(str).replace(/[()]/g, function(c) {
+function encodeText(arr){
+  let searchString = arr.map(item => `"${item}"`).join();
+  return encodeURIComponent(searchString).replace(/[()]/g, function(c){
     return '%' + c.charCodeAt(0).toString(16);
   });
-}
-  
-  
-  
 }
 
 
