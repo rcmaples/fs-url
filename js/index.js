@@ -1,4 +1,4 @@
-function getStarted() {
+zfunction getStarted() {
   // do stuff
   console.log('jQuery is ready.');
   formSubmission();
@@ -50,6 +50,22 @@ function formSubmission() {
 function resetSelect(){
   $('#searchField').prop('selectedIndex', 0)
 }
+
+
+function encodeText(textArr){
+  let searchString = searchArray.map(item => `"${item}"`).join();
+  let encoded = encodeURIComponent(searchString);
+  
+  
+  return encodeURIComponent(str).replace(/[()]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+  
+  
+  
+}
+
 
 function generateOrgNameURL(searchArray) {
   let url=''
