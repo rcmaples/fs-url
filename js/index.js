@@ -15,6 +15,10 @@ function formSubmission() {
       .split(/\n/);
     console.log(textArr);
     
+    // TODO:
+    // let encodedTextArr = encdodeText(textArr)
+    // generate*URL(encodedTextArr)
+    
     let searchType = '';
     searchType = $('#searchField').val();
     
