@@ -31,6 +31,15 @@ function formSubmission() {
         console.log('case: uid');
         generateUidURL(textArr);
         break;
+      case 'orgid':
+        console.log('case: orgid')
+        generateOrgIdURL(textArr);
+        break;
+      case 'orgName':
+        console.log('case: orgName')
+        generateOrgNameURL(textArr);
+        break;
+        
     }
     
     // urlGenerator(textArr);
@@ -41,6 +50,37 @@ function formSubmission() {
 function resetSelect(){
   $('#searchField').prop('selectedIndex', 0)
 }
+
+function generateOrgNameURL(searchArray) {
+  let url=''
+  let searchString = searchArray.map(item => `"${item}"`).join();
+  console.log(searchString);
+  let encoded = encodeURIComponent(searchString);
+  console.log(encoded);
+  if (window.location == `https://fs-url.glitch.me/staging`){
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_OrgName_str:==:%5B${encoded}%5D)):():():():)/0`;
+  } else {
+   url = `https://google.com`;
+  }
+ console.log(url);
+  displayURL(url);
+}
+
+function generateOrgIdURL(searchArray) {
+  let url=''
+  let searchString = searchArray.map(item => `"${item}"`).join();
+  console.log(searchString);
+  let encoded = encodeURIComponent(searchString);
+  console.log(encoded);
+  if (window.location == `https://fs-url.glitch.me/staging`){
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_OrgId_str:==:%5B${encoded}%5D)):():():():)/0`;
+  } else {
+   url = `https://google.com`;
+  }
+ console.log(url);
+  displayURL(url);
+}
+
 
 function generateNameURL(searchArray) {
   let url=''
