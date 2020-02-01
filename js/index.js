@@ -15,9 +15,7 @@ function formSubmission() {
       .split(/\n/);
     console.log(textArr);
     
-    // TODO:
-    // let encodedTextArr = encdodeText(textArr)
-    // generate*URL(encodedTextArr)
+    let encodedText = encodeText(textArr)
     
     let searchType = '';
     searchType = $('#searchField').val();
@@ -25,7 +23,7 @@ function formSubmission() {
     switch(searchType){
       case 'email':
         console.log('case: email');
-        generateEmailURL(textArr);
+        generateEmailURL(encodedText);
         break;
       case 'name':
         console.log('case: name');
@@ -60,6 +58,18 @@ function encodeText(arr){
     return '%' + c.charCodeAt(0).toString(16);
   });
 }
+
+
+function generateEmailURL(encodedText) {
+  let url=''
+  if (window.location == `https://fs-url.glitch.me/staging`){
+   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encodedText}%5D)):():():():)/0`;
+  } else {
+   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encodedText}%5D)):():():():)/0`;
+  }
+  displayURL(url);
+}
+
 
 
 function generateOrgNameURL(searchArray) {
@@ -124,20 +134,20 @@ function generateUidURL(searchArray) {
 }
 
 
-function generateEmailURL(searchArray) {
-  let url=''
-  let searchString = searchArray.map(item => `"${item}"`).join();
-  console.log(searchString);
-  let encoded = encodeURIComponent(searchString);
-  console.log(encoded);
-  if (window.location == `https://fs-url.glitch.me/staging`){
-   url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
-  } else {
-   url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
-  }
- console.log(url);
-  displayURL(url);
-}
+// function generateEmailURL(searchArray) {
+//   let url=''
+//   let searchString = searchArray.map(item => `"${item}"`).join();
+//   console.log(searchString);
+//   let encoded = encodeURIComponent(searchString);
+//   console.log(encoded);
+//   if (window.location == `https://fs-url.glitch.me/staging`){
+//    url = `https://app.staging.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+//   } else {
+//    url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+//   }
+//  console.log(url);
+//   displayURL(url);
+// }
 
 
 function displayURL(url) {
