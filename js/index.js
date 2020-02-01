@@ -55,7 +55,7 @@ function resetSelect(){
 function encodeText(arr){
   let searchString = arr.map(item => `"${item}"`).join();
   let str = encodeURI(searchString).replace(/[()]/g, function(c){
-    return '%25%' + c.charCodeAt(0).toString(16);
+    return '%' + c.charCodeAt(0).toString(16);
   });
   console.log(`str: `, str)
   return str;
