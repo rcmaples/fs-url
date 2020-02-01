@@ -54,9 +54,11 @@ function resetSelect(){
 
 function encodeText(arr){
   let searchString = arr.map(item => `"${item}"`).join();
-  return encodeURIComponent(searchString).replace(/[()]/g, function(c){
+  let str = encodeURIComponent(searchString).replace(/[()]/g, function(c){
     return '%' + c.charCodeAt(0).toString(16);
   });
+  console.log(`str: `, str)
+  return str;
 }
 
 
