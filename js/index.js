@@ -54,8 +54,8 @@ function resetSelect(){
 
 function encodeText(arr){
   let searchString = arr.map(item => `"${item}"`).join();
-  let str = encodeURIComponent(searchString).replace(/[()]/g, function(c){
-    return '%' + c.charCodeAt(0).toString(16);
+  let str = encodeURI(searchString).replace(/[()]/g, function(c){
+    return '%25%' + c.charCodeAt(0).toString(16);
   });
   console.log(`str: `, str)
   return str;
@@ -69,6 +69,8 @@ function generateEmailURL(encoded) {
   } else {
    url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
   }
+  console.log(`encoded: `, encoded)
+  // console.log(`url: `, url)
   displayURL(url);
 }
 
