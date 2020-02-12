@@ -67,7 +67,7 @@ function encodeText(arr){
 
 function generateHDSupplySoldTo(encoded) {
   let url=''
-  url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+  url = `https://app.fullstory.com/ui/GYHXA/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_soldTo_str:==:%5B${encoded}%5D)):():():():)/0`;
   displayURL(url);
 }
 
