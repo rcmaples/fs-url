@@ -41,6 +41,9 @@ function formSubmission() {
         console.log('case: orgName')
         generateOrgNameURL(encodedText);
         break;
+      case 'soldTo':
+        console.log('case: HD Supply - Sold To')
+        generateHDSupplySoldTo(encodedText);
         
     }
     resetSelect()
@@ -59,6 +62,13 @@ function encodeText(arr){
   });
   console.log(`str: `, str)
   return str;
+}
+
+
+function generateHDSupplySoldTo(encoded) {
+  let url=''
+  url = `https://app.fullstory.com/ui/org/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserEmail:==:%5B${encoded}%5D)):():():():)/0`;
+  displayURL(url);
 }
 
 
