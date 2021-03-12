@@ -41,9 +41,9 @@ function formSubmission() {
         console.log('case: orgName')
         generateOrgNameURL(encodedText);
         break;
-      case 'soldTo':
-        console.log('case: HD Supply - Sold To')
-        generateHDSupplySoldTo(encodedText);
+      case 'generateLNUserIDStr':
+        console.log('case: Lexis')
+        generateLNUserIDStr(encodedText);
         
     }
     resetSelect()
@@ -68,6 +68,13 @@ function encodeText(arr){
 function generateHDSupplySoldTo(encoded) {
   let url=''
   url = `https://app.fullstory.com/ui/GYHXA/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_soldTo_str:==:%5B${encoded}%5D)):():():():)/0`;
+  displayURL(url);
+}
+
+
+function generateLNUserIDStr(encoded) {
+  let url=''
+  url = `https://app.fullstory.com/ui/GYHXA/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_id_str:==:%5B${encoded}%5D)):():():():)/0`;
   displayURL(url);
 }
 
