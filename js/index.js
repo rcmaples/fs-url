@@ -74,7 +74,7 @@ function generateHDSupplySoldTo(encoded) {
 
 function generateLNUserIDStr(encoded) {
   let url=''
-  url = `https://app.fullstory.com/ui/PDWR1/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):(user_userId_str:==:%5B${encoded}%5D)):():():():)/0`;
+  url = `https://app.fullstory.com/ui/PDWR1/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((user_user_id_str:==:%5B${encoded}%5D)):():():():)/0`;
   displayURL(url);
 }
 
